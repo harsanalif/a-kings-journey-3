@@ -201,7 +201,7 @@ function checkCollision(posX, posY, dirX, dirY)
 			isCollide = false;
 		}
 	}	
-	else if(Player.tempItem[idx] == 6) //Main Door 
+	else if(Player.tempItem[idx] == 6) //Main Door Locked
 	{
 		if(Player.mainKey > 0)
 		{
@@ -209,10 +209,8 @@ function checkCollision(posX, posY, dirX, dirY)
 		
 			Player.mainKey--;
 			Player.tempItem[idx] = 7;
-			
-			gameState = 3;
-				
-			sequence.stop();
+		
+			isCollide = false;
 		}
 		else 
 		{
@@ -220,6 +218,12 @@ function checkCollision(posX, posY, dirX, dirY)
 		
 			isCollide = false;
 		}
+	}
+	else if(Player.tempItem[idx] == 7) //Main Door Opened 
+	{
+		gameState = 3;
+			
+		sequence.stop();
 	}
 	
 	return isCollide;
