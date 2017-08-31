@@ -211,6 +211,8 @@ function checkCollision(posX, posY, dirX, dirY)
 			Player.tempItem[idx] = 7;
 			
 			gameState = 3;
+				
+			sequence.stop();
 		}
 		else 
 		{
@@ -228,6 +230,8 @@ function drawTitle()
 	Font.drawText("a king's journey", 1.5*tileWidth, 1*tileHeight+8);
 	Font.drawText("chapter 3:", 3*tileWidth, 3*tileHeight+8);
 	Font.drawText("trapped & poisoned", 1*tileWidth, 4*tileHeight+8);
+	
+	ctx.drawImage(asset, 0, 0, tileWidth, tileHeight, 5*tileWidth, 6.5*tileHeight, tileWidth, tileHeight);
 	
 	Font.drawText("press space", 3*tileWidth, 9*tileHeight+8);
 	Font.drawText("to continue", 3*tileWidth, 10*tileHeight+8);
@@ -283,6 +287,8 @@ function keyDownHandler(e) {
 		if(e.keyCode == 13 || e.keyCode == 32)
 		{
 			gameState = 2;
+			
+			sequence.play();	
 		}
 	}
 	else if(gameState == 2)
@@ -316,6 +322,8 @@ function keyDownHandler(e) {
 			if(Player.life <= 0)
 			{
 				gameState = 3;
+				
+				sequence.stop();
 			}
 		}
 	}
@@ -331,3 +339,45 @@ function keyDownHandler(e) {
 }
 document.addEventListener("keydown", keyDownHandler, false);
 
+//Music
+var ac = new AudioContext();
+var tempo = 60;
+var sequence = new TinyMusic.Sequence( ac, tempo, [
+  '-   e',
+    'Bb3 e',
+    'A3  e',
+    'Bb3 e',
+    'G3  e',
+    'A3  e',
+    'F3  e',
+    'G3  e',
+
+    'E3  e',
+    'F3  e',
+    'G3  e',
+    'F3  e',
+    'E3  e',
+    'F3  e',
+    'D3  q',
+
+    '-   e',
+    'D4  s',
+    'C4  s',
+    'D4  e',
+    'Bb3 e',
+    'C4  e',
+    'Bb3 e',
+    'A3  e',
+    'Bb3 e',
+
+    'G3  e',
+    'A3  e',
+    'Bb3 e',
+    'A3  e',
+    'G3  s',
+    'A3  s',
+    'G3  e',
+    'F3  q'
+]);
+sequence.loop = true;
+sequence.gain.gain.value = 0.25; 

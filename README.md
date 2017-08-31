@@ -7,8 +7,10 @@ Not only that, he also lock you in the dungeon and throw away the key. You need 
 ## Context
 My short games for js13k 2017 competition.
 This is a hypotethical third games in the A King's Journey games series.
+Multiple playthrough might be needed to find the true ending.
 
 ## Copyright
-### Pixel font by Jerom (https://opengameart.org/content/small-blocky-font)
-### Tileset by Jerom (https://opengameart.org/content/16x16-fantasy-tileset)
-### jsfxr.js by Thomas Vian
+Pixel font by Jerom (https://opengameart.org/content/small-blocky-font)
+Tileset by Jerom (https://opengameart.org/content/16x16-fantasy-tileset)
+jsfxr.js by Thomas Vian (https://github.com/mneubrand/jsfxr)
+TinyMusic by Kevin Cennis (https://github.com/kevincennis/TinyMusic)
